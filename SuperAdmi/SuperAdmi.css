@@ -1,0 +1,156 @@
+/* ===== ESTILOS SUPERADMIN ===== */
+.superadmin-panel {
+    background-color: #f5f5f5;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.admin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px;
+    margin: 30px 0;
+}
+
+.admin-card {
+    background: white;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    border-top: 4px solid #3498db;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.admin-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.admin-card h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.admin-card h2 .icon {
+    font-size: 1.3em;
+}
+
+/* Formularios */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+    transition: border 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+/* Botones */
+.btn-primary {
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #3498db;
+}
+
+.btn-secondary {
+    display: inline-block;
+    margin-top: 15px;
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.btn-secondary:hover {
+    text-decoration: underline;
+}
+
+/* Zona crítica */
+.danger-zone {
+    border-color: #e74c3c !important;
+    background-color: #fff9f9;
+}
+
+.danger-zone h2 {
+    color: #e74c3c;
+    border-bottom-color: #ffdddd;
+}
+
+.btn-warning {
+    background-color: #e74c3c;
+    color: white;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+/* Listado de administradores */
+.admin-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.admin-ul {
+    list-style: none;
+}
+
+.admin-ul li {
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.admin-ul li:last-child {
+    border-bottom: none;
+}
+
+/* Alertas */
+.alert {
+    padding: 15px;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+.alert-success {
+    background-color: #e8f5e9;
+    border-left: 4px solid #4caf50;
+    color: #2e7d32;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .admin-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .admin-card {
+        padding: 20px;
+    }
+}

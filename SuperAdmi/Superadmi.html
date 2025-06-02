@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGEPI - Panel SuperAdmin</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="SuperAdmi.css">
+</head>
+<body>
+    <div class="container superadmin-panel">
+        <!-- Encabezado -->
+        <header class="header">
+            <img src="admipic.jpg" alt="Logo SIGEPI" class="logo">
+            <h1>Panel de SuperAdministrador</h1>
+            <p>Control total del sistema SIGEPI</p>
+        </header>
+
+        <!-- Contenido Principal -->
+        <main>
+            <div class="admin-grid">
+                <!-- Tarjeta 1: Generación de Códigos -->
+                <div class="admin-card">
+                    <h2><i class="material-icons">vpn_key</i> Generar Accesos</h2>
+                    <div class="form-group">
+                        <label for="adminEmail">Email institucional:</label>
+                        <input type="email" id="adminEmail" placeholder="admin@institucion.edu" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="accessLevel">Nivel de acceso:</label>
+                        <select id="accessLevel" class="form-control">
+                            <option value="basic">Administrador Básico</option>
+                            <option value="medium">Administrador Intermedio</option>
+                            <option value="high">Administrador Avanzado</option>
+                        </select>
+                    </div>
+                    <button id="generateCodeBtn" class="btn-primary">
+                        <i class="material-icons">add_circle</i> Generar Código
+                    </button>
+                    <div id="codeResult" class="alert alert-success hidden"></div>
+                </div>
+
+                <!-- Tarjeta 2: Listado de Administradores -->
+                <div class="admin-card">
+                    <h2><i class="material-icons">people</i> Administradores Activos</h2>
+                    <div id="adminList" class="admin-list">
+                        <ul class="admin-ul">
+                            <li>
+                                <strong>María González</strong>
+                                <div class="admin-meta">
+                                    <span>admin1@institucion.edu</span>
+                                    <span>Último acceso: 15/06/2024</span>
+                                </div>
+                            </li>
+                            <li>
+                                <strong>Carlos Mendoza</strong>
+                                <div class="admin-meta">
+                                    <span>admin2@institucion.edu</span>
+                                    <span>Último acceso: 14/06/2024</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="gestion-admin.html" class="btn-secondary">
+                        <i class="material-icons">list_alt</i> Ver todos
+                    </a>
+                </div>
+            </div>
+
+            <!-- Zona Crítica -->
+            <div class="admin-card danger-zone">
+                <h2><i class="material-icons">warning</i> Zona Crítica</h2>
+                <div class="critical-actions">
+                    <button id="auditLogsBtn" class="btn-warning">
+                        <i class="material-icons">assignment</i> Registros de Auditoría
+                    </button>
+                    <button id="backupBtn" class="btn-warning">
+                        <i class="material-icons">backup</i> Generar Backup
+                    </button>
+                    <button id="lockSystemBtn" class="btn-warning">
+                        <i class="material-icons">lock</i> Bloquear Sistema
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Pie de Página -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>SIGEPI v2.0 | © 2025 Universidad INSTITUTO TECNOLOGICO DE TIJUANA</p>
+                <p id="lastAccess">Último acceso: <span id="accessTime"></span></p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/superadmin.js"></script>
+</body>
+</html>

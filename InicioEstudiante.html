@@ -3,17 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
+    <title>SIGEPI - Portal Estudiantil</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="InicioEstudiante.css">
 </head>
 <body>
-    <header>
-        <h1>Bienvenido a mi página</h1>
-    </header>
-    <main>
-        <p>Este es el contenido principal de la página.</p>
-    </main>
-    <footer>
-        <p>&copy; 2023 Residencia</p>
-    </footer>
+    <div class="container student-portal">
+        <!-- Encabezado -->
+        <header class="student-header">
+            <div class="header-content">
+                <img src="imagenes/LogoEscuela.jpg" alt="Logo" class="logo">
+                <div class="header-text">
+                    <h1>Portal Estudiantil</h1>
+                    <p>Bienvenida al Sistema Integral de Gestión</p>
+                </div>
+            </div>
+            <div class="student-profile">
+                <span class="material-icons">account_circle</span>
+                <span id="studentName">Usuario Estudiante</span>
+            </div>
+        </header>
+
+        <!-- Contenido Principal -->
+        <main class="student-main">
+            <section class="welcome-banner">
+                <div class="banner-content">
+                    <h2><i class="material-icons">school</i> Mis Estudios</h2>
+                    <p>Gestiona tu información académica</p>
+                </div>
+                <div class="banner-image">
+                    <img src="imagenes/alumnas.webp" alt="Estudiantes universitarios">
+                </div>
+            </section>
+
+            <!-- Sección de Accesos Rápidos -->
+            <section class="quick-access">
+                <h3><i class="material-icons">dashboard</i> Accesos Directos</h3>
+                <div class="access-grid">
+                    <a href="#" class="access-card">
+                        <i class="material-icons">assignment</i>
+                        <span>Calificaciones</span>
+                    </a>
+                    <a href="#" class="access-card">
+                        <i class="material-icons">event</i>
+                        <span>Horarios</span>
+                    </a>
+                    <a href="#" class="access-card">
+                        <i class="material-icons">library_books</i>
+                        <span>Materiales</span>
+                    </a>
+                    <a href="#" class="access-card">
+                        <i class="material-icons">payments</i>
+                        <span>Pagos</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Espacio para futuros módulos -->
+            <section class="future-modules">
+                <div class="module-placeholder">
+                    <i class="material-icons">add_circle_outline</i>
+                    <p>Módulos adicionales se mostrarán aquí</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Pie de Página -->
+        <footer class="student-footer">
+            <p>SIGEPI - Sistema Integral de Gestión | Versión Estudiantil 2.0</p>
+            <p><a href="#">Ayuda</a> | <a href="Contacto.html">Contacto</a> | <a href="#">Políticas</a></p>
+        </footer>
+    </div>
 </body>
 </html>

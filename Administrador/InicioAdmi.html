@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGEPI - Panel Administrativo</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="InicioAdmi.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+                <img src="img/logo-institucion-admin.png" alt="Logo SIGEPI" class="admin-logo">
+                <h3>Panel Administrativo</h3>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="#">
+                            <i class="material-icons">dashboard</i>
+                            <span>Inicio</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="gestion-estudiantes.html">
+                            <i class="material-icons">people</i>
+                            <span>Gestión Estudiantil</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="programas-academicos.html">
+                            <i class="material-icons">school</i>
+                            <span>Programas Académicos</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="reportes.html">
+                            <i class="material-icons">assessment</i>
+                            <span>Reportes</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="configuracion.html">
+                            <i class="material-icons">settings</i>
+                            <span>Configuración</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">
+                        <i class="material-icons">account_circle</i>
+                    </div>
+                    <div class="user-info">
+                        <p class="user-name">Admin. María González</p>
+                        <p class="user-role">Coordinadora Académica</p>
+                    </div>
+                </div>
+                <a href="#" class="logout-btn">
+                    <i class="material-icons">logout</i>
+                    <span>Cerrar sesión</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Header -->
+            <header class="admin-topbar">
+                <div class="search-bar">
+                    <i class="material-icons">search</i>
+                    <input type="text" placeholder="Buscar en el sistema...">
+                </div>
+                <div class="admin-alerts">
+                    <button class="alert-btn">
+                        <i class="material-icons">notifications</i>
+                        <span class="badge">3</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <section class="dashboard-content">
+                <h1>Bienvenida al Panel de Control</h1>
+                <p class="subtitle">Resumen general del sistema</p>
+                
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card blue">
+                        <div class="stat-icon">
+                            <i class="material-icons">people_alt</i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>1,248</h3>
+                            <p>Estudiantes activos</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card green">
+                        <div class="stat-icon">
+                            <i class="material-icons">class</i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>24</h3>
+                            <p>Programas académicos</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card orange">
+                        <div class="stat-icon">
+                            <i class="material-icons">pending_actions</i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>18</h3>
+                            <p>Solicitudes pendientes</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card purple">
+                        <div class="stat-icon">
+                            <i class="material-icons">event_available</i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>5</h3>
+                            <p>Eventos próximos</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Quick Actions -->
+                <div class="quick-actions">
+                    <h2>Acciones rápidas</h2>
+                    <div class="actions-grid">
+                        <a href="nuevo-estudiante.html" class="action-card">
+                            <i class="material-icons">person_add</i>
+                            <span>Registrar estudiante</span>
+                        </a>
+                        <a href="generar-reporte.html" class="action-card">
+                            <i class="material-icons">insert_drive_file</i>
+                            <span>Generar reporte</span>
+                        </a>
+                        <a href="calendario.html" class="action-card">
+                            <i class="material-icons">calendar_today</i>
+                            <span>Ver calendario</span>
+                        </a>
+                        <a href="mensajes.html" class="action-card">
+                            <i class="material-icons">email</i>
+                            <span>Mensajes</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Recent Activity -->
+                <div class="recent-activity">
+                    <h2>Actividad reciente</h2>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="material-icons">assignment_ind</i>
+                            </div>
+                            <div class="activity-content">
+                                <p><strong>Nuevo registro:</strong> Estudiante Ana López en Ingeniería</p>
+                                <small>Hoy, 10:45 AM</small>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="material-icons">edit_document</i>
+                            </div>
+                            <div class="activity-content">
+                                <p><strong>Actualización:</strong> Plan de estudios de Administración</p>
+                                <small>Ayer, 3:20 PM</small>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="material-icons">verified</i>
+                            </div>
+                            <div class="activity-content">
+                                <p><strong>Solicitud aprobada:</strong> Cambio de grupo - Carlos Méndez</p>
+                                <small>Ayer, 11:30 AM</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

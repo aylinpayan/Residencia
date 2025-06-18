@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario Compacto - SIGEPI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="FormularioRegistro.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Registro de Estudiante</h2>
+        <form>
+            <div class="form-group">
+                <label for="nombre">Nombres:</label>
+                <input type="text" id="nombre" name="nombre" required placeholder="Ingrese sus nombres">
+            </div>
+
+            <div class="form-group">
+                <label for="apellido">Apellidos:</label>
+                <input type="text" id="apellido" name="apellido" required placeholder="Ingrese sus apellidos">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email" required placeholder="ejemplo@tectijuana.edu.mx">
+            </div>
+
+            <div class="form-group">
+                <label for="curp">CURP:</label>
+                <input type="text" id="curp" name="curp" maxlength="18" pattern="[A-Z0-9]{18}" 
+                       title="Ingrese una CURP válida de 18 caracteres en mayúsculas" required 
+                       placeholder="ABCD123456EFGHIJ78">
+            </div>
+
+            <div class="form-group">
+                <label for="genero">Género:</label>
+                    <select name="genero" style="-webkit-appearance: none; -moz-appearance: none; appearance: none;">
+                    <option value="">Seleccione una opción</option>
+                    <option value="masculino">Masculino</option>
+                    <option value="femenino">Femenino</option>
+                    <option value="No Binario">No Binario</option>
+                    <option value="otro">Otro</option>
+                    </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="posgrado">Posgrado:</label>
+               <select name="posgrado" style="-webkit-appearance: none; -moz-appearance: none; appearance: none;">
+                    <option value="">Seleccione una opción</option>
+                    <option value="maestria">Maestría</option>
+                    <option value="doctorado">Doctorado</option>
+                    <option value="especialidad">Especialidad</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="carrera">Carrera de Posgrado:</label>
+                <select name="carrera" style="-webkit-appearance: none; -moz-appearance: none; appearance: none;">
+                    <option value="">Seleccione una opción</option>
+                    <option value="MC">Maestría en Ciencias de la Computación (SNP-CONAHCyT)</option>
+                    <option value="ingenieria">Maestría en Ciencias en Química (SNP-CONAHCyT)</option>
+                    <option value="humanidades">Maestría en Ciencias de la Ingeniería (SNP-CONAHCyT)</option>
+                    <option value="humanidades">Maestría en Administración</option>
+                    <option value="humanidades">Maestría en Ingeniería Industrial (SNP-CONAHCyT)</option>
+                    <option value="humanidades">Maestría en Ingeniería Mecatrónica</option>
+                    <option value="humanidades">Maestría en Tecnologías de la Información</option>
+                    <option value="humanidades">Maestría en Ciencias en Semiconductores</option>
+                    
+                </select>
+            </div>
+
+            <button type="submit">
+                Registrarte 
+            </button>
+        </form>
+    </div>
+</body>
+</html>

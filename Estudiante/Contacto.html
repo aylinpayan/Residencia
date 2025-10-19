@@ -2,116 +2,432 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <title>Contacto Coordinadores - SIGEPI</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIGEPI - Contacto Coordinadores</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="Contacto.css">
 </head>
 <body>
-    <div class="container contact-page">
-        <!-- Encabezado -->
+    <div class="container">
         <header class="contact-header">
-            <div class="header-content">
-                <img src="../Imagenes/LogoEscuela.jpg" alt="Logo SIGEPI" class="logo">
-                <div class="header-text">
-                    <h1>Contacto Coordinadores</h1>
-                    <p>Comunicación directa con el equipo académico</p>
-                </div>
-            </div>
+            <h1>Contacto de Coordinadores</h1>
+            <p>Selecciona el nivel y especialidad para ver la información de contacto</p>
         </header>
 
-        <!-- Contenido Principal -->
         <main class="contact-main">
-            <!-- Sección de Redirección a Coordinadores -->
-            <section class="contact-info">
-                <div class="contact-card intro-card">
-                    <i class="material-icons">help_outline</i>
-                    <h2>¿Necesitas ayuda académica?</h2>
-                    <p>Accede directamente al sistema de contacto de tu coordinación:</p>
+            <!-- Paso 1: Selección de Nivel -->
+            <section id="paso-nivel" class="paso-activo">
+                <h2><i class="material-icons">school</i> Paso 1: Selecciona el Nivel</h2>
+                <div class="opciones-grid">
+                    <div class="opcion-card" onclick="seleccionarNivel('maestria')">
+                        <i class="material-icons">local_library</i>
+                        <h3>Maestría</h3>
+                    </div>
+                    <div class="opcion-card" onclick="seleccionarNivel('doctorado')">
+                        <i class="material-icons">science</i>
+                        <h3>Doctorado</h3>
+                    </div>
                 </div>
 
-                <!-- Tarjetas de Redirección -->
-                <div class="coordinators-grid">
-                    <!-- Coordinación 1 -->
-                    <a href="https://profesionales2.wixsite.com/deptijuana/coordinaciones" class="coordinator-card redirect-card" target="_blank">
-                        <div class="coordinator-header">
-                            <i class="material-icons">school</i>
-                            <h3>Coordinación de Ingeniería</h3>
-                        </div>
-                        <div class="coordinator-body">
-                            <p><i class="material-icons">launch</i> Portal especializado</p>
-                            <div class="redirect-btn">
-                                Acceder <i class="material-icons">arrow_forward</i>
-                            </div>
-                        </div>
+                 <div class="navegacion-inferior">
+                    <a href="InicioEstudiante.html" class="btn-inicio">
+                        <i class="material-icons">home</i>
+                        Volver al Inicio
                     </a>
                 </div>
             </section>
 
-            <!-- Sección de Formulario -->
-            <section class="form-section">
-                <div class="form-container">
-                    <div class="form-header">
-                        <i class="material-icons">contact_mail</i>
-                        <h2>Contacto General</h2>
-                        <p>Si prefieres, envía un mensaje directo al departamento</p>
-                    </div>
-                    
-                    <form id="contactForm" class="contact-form">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="name">Nombre completo*</label>
-                                <input type="text" id="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Correo electrónico*</label>
-                                <input type="email" id="email" required>
-                            </div>
-                        </div>
+            <!-- Paso 2: Selección de Especialidad -->
+            <section id="paso-especialidad" class="paso-oculto">
+                <div class="paso-header">
+                    <button class="btn-volver" onclick="volverPasoAnterior()">
+                        <i class="material-icons">arrow_back</i> Volver
+                    </button>
+                    <h2><i class="material-icons">category</i> Paso 2: Selecciona la Especialidad</h2>
+                </div>
+                <div id="especialidades-container" class="especialidades-grid">
+                    <!-- Las especialidades se cargan dinámicamente -->
+                </div>
 
-                        <div class="form-group">
-                            <label for="career">Carrera/Programa*</label>
-                            <select id="career" required>
-                                <option value="">Selecciona tu carrera</option>
-                                <option value="ingenieria">Ingeniería</option>
-                                <option value="ciencias">Ciencias</option>
-                                <option value="administracion">Administración</option>
-                                <option value="otro">Otra</option>
-                            </select>
-                        </div>
+            </section>
+            
 
-                        <div class="form-group">
-                            <label for="subject">Asunto*</label>
-                            <input type="text" id="subject" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message">Mensaje*</label>
-                            <textarea id="message" rows="5" required></textarea>
-                        </div>
-
-                        <div class="form-footer">
-                            <button type="submit" class="submit-btn">
-                                <i class="material-icons">send</i> Enviar Mensaje
-                            </button>
-                            <p class="required-fields">* Campos obligatorios</p>
-                        </div>
-                    </form>
+            <!-- Paso 3: Información del Coordinador -->
+            <section id="paso-coordinador" class="paso-oculto">
+                <div class="paso-header">
+                    <button class="btn-volver" onclick="volverAEspecialidades()">
+                        <i class="material-icons">arrow_back</i> Volver
+                    </button>
+                    <h2><i class="material-icons">person</i> Información del Coordinador</h2>
+                    <button class="btn-editar-global" onclick="toggleEdicionGlobal()">
+                        <i class="material-icons" id="icono-edicion">edit</i>
+                        <span id="texto-edicion">Editar</span>
+                    </button>
+                </div>
+                
+                <div id="info-coordinador" class="coordinador-info">
+                    <!-- La información del coordinador se carga dinámicamente -->
                 </div>
             </section>
         </main>
-
-        <div class="login-links">
-            <a href="InicioEstudiante.html">Volver al inicio</a>
-        </div>
-
-        <!-- Pie de Página -->
-        <footer class="contact-footer">
-            <div class="footer-content">
-                <p>SIGEPI - Sistema Integral de Gestión</p>
-                <p>Área de Comunicación Académica | © 2024</p>
-            </div>
-        </footer>
     </div>
+
+    <script>
+        // Datos de las especialidades y coordinadores - MAESTRÍA (9) y DOCTORADO (5)
+        const datosEspecialidades = {
+            maestria: [
+                {
+                    id: 'Ciencias de la Computación',
+                    nombre: 'Maestría en Ciencias de la Computación (SNP-CONAHCyT)',
+                    coordinador: {
+                        nombre: 'Dra. Patricia Melin',
+                        telefono: '+52 664-82-7229',
+                        email: 'pmelin@tectijuana.edu.mx',
+                        enlace: 'https://www.tijuana.tecnm.mx/maestria-en-ciencias-de-la-computacion',
+                        horario: 'Lunes a Viernes: 9:00 - 14:00 hrs',
+                        oficina: '-----'
+                    }
+                },
+                {
+                    id: 'Ciencias Químicas',
+                    nombre: 'Maestría en Ciencias en Química (SNP-CONAHCyT)',
+                    coordinador: {
+                        nombre: 'Dr. Rosalio Velarde Barraza',
+                        telefono: '+52 (664) 623.4043',
+                        email: 'cgiq@tectijuana.edu.mx',
+                        enlace: 'https://cgiqtectijuana.mx/?page_id=78',
+                        horario: 'Lunes a Viernes: 10:00 - 15:00 hrs',
+                        oficina: '-----------'
+                    }
+                },
+                {
+                    id: 'Ciencias de la Ingenieria',
+                    nombre: 'Maestría en Ciencias de la Ingeniería (SNP-CONAHCyT)',
+                    coordinador: {
+                        nombre: 'Dr. José Ricardo Cárdenas Valdez',
+                        telefono: '+52 (664) 607-8400 ext. 270',
+                        email: 'mci@tectijuana.edu.mx',
+                        enlace: 'https://www.tijuana.tecnm.mx/maestria-en-ciencias-de-la-ingenieria',
+                        horario: 'Lunes a Viernes: 11:00 - 16:00 hrs',
+                        oficina: '------------------'
+                    }
+                },
+                {
+                    id: 'Administracion',
+                    nombre: 'Maestría en Administración',
+                    coordinador: {
+                        nombre: 'Barutch Pimienta Gallardo',
+                        telefono: '+52 (664) 368 4583 ',
+                        email: 'm_admin@tectijuana.edu.mx',
+                        enlace: 'https://www.tijuana.tecnm.mx/maestria-en-administracion',
+                        horario: 'Lunes a Miércoles: 9:00 - 12:00 hrs',
+                        oficina: 'Edificio F, Piso 2, Oficina 215'
+                    }
+                },
+                {
+                    id: 'iNgenieria industrial',
+                    nombre: 'Maestría en Ingeniería Industrial (SNP-CONAHCyT)',
+                    coordinador: {
+                        nombre: 'DR. JUAN RAMON PEREZ MORALES',
+                        telefono: '+52 (664) 607-8400 ext.',
+                        email: 'maestria.industrial@tectijuana.edu.mx',
+                        enlace: 'https://www.tijuana.tecnm.mx/maestria-en-ingenieria-industrial-2',
+                        horario: 'Martes a Jueves: 10:00 - 13:00 hrs',
+                        oficina: 'Edificio G, Piso 1, Oficina 118'
+                    }
+                },
+                {
+                    id: 'Ingeneria Mecatronica',
+                    nombre: 'Maestría en Ingeniería Mecatrónica',
+                    coordinador: {
+                        nombre: '(Coordinador Académico)',
+                        telefono: '+52 (664) 607-8400 Ext. 136',
+                        email: 'maestria.mecatronica@tectijuana.edu.mx',
+                        enlace: 'https://www.tijuana.tecnm.mx/maestria-en-mecatronica',
+                        horario: 'Lunes a Viernes: 8:00 - 11:00 hrs',
+                        oficina: 'Edificio H, Piso 3, Oficina 310'
+                    }
+                },
+                {
+                    id: 'Tecnologias de la Informacion',
+                    nombre: 'Maestría en Tecnologías de la Información',
+                    coordinador: {
+                        nombre: 'DR. BOGART YAIL MÁRQUEZ LOBATO',
+                        telefono: '(664) ext',
+                        email: 'mtidsc@tectijuana.edu.mx',
+                        enlace: 'https://www.tijuana.tecnm.mx/MTI',
+                        horario: 'Miércoles a Viernes: 14:00 - 17:00 hrs',
+                        oficina: 'Edificio I, Piso 2, Oficina 225'
+                    }
+                },
+                {
+                    id: 'Inteligencia Artificial',
+                    nombre: 'Maestría en Inteligencia Artificial',
+                    coordinador: {
+                        nombre: 'Dra. Patricia Melin',
+                        telefono: '+52 (664) 682-7229',
+                        email: 'pmelin@tectijuana.edu.mx',
+                        enlace: 'https://www.tijuana.tecnm.mx/maestria-en-inteligencia-artificial',
+                        horario: 'Lunes a Jueves: 13:00 - 16:00 hrs',
+                        oficina: 'Edificio J, Piso 1, Oficina 105'
+                    }
+                },
+                {
+                    id: 'Ciencias en Semiconductores',
+                    nombre: 'Maestría en Ciencias en Semiconductores',
+                    coordinador: {
+                        nombre: 'Dr. Julio César Calva Yáñez',
+                        telefono: '+52 (664) 607-8400 Ext. 300',
+                        email: 'm_semiconductores@tectijuana.edu.mx',
+                        enlace: 'https://www.tijuana.tecnm.mx/maestria-en-ciencias-en-semiconductores',
+                        horario: 'Martes a Viernes: 9:00 - 12:00 hrs',
+                        oficina: 'Edificio K, Piso 4, Oficina 405'
+                    }
+                }
+            ],
+            doctorado: [
+                {
+                    id: 'ciencias-computacion',
+                    nombre: 'Investigación Doctorado en Ciencias en Computación (SNP-CONAHCyT)',
+                    coordinador: {
+                        nombre: 'Dra. Patricia Melin',
+                        telefono: '+52 ',
+                        email: 'pmelin@tectijuana.edu.mx',
+                        enlace: 'https://www.tijuana.tecnm.mx/doctorado-en-ciencias-en-la-computacion',
+                        horario: 'Lunes a Jueves: 9:00 - 13:00 hrs',
+                        oficina: 'Edificio D, Piso 4, Oficina 401'
+                    }
+                },
+                {
+                    id: 'Ciencias-quimicas',
+                    nombre: 'Doctorado en Ciencias en Química (SNP-CONAHCyT)',
+                    coordinador: {
+                        nombre: 'Dr. Rosalio Velarde Barraza',
+                        telefono: '+52 (664) 623.4043',
+                        email: 'cgiq@tectijuana.edu.mx',
+                        enlace: 'https://cgiqtectijuana.mx/?page_id=78',
+                        horario: 'Martes a Viernes: 10:00 - 14:00 hrs',
+                        oficina: 'Laboratorio de Biotecnología, Edificio E'
+                    }
+                },
+                {
+                    id: 'Ciencias-Administracion',
+                    nombre: 'Doctorado en Administración',
+                    coordinador: {
+                        nombre: 'Rodolfo Martínez Gutiérrez',
+                        telefono: '+52 (664) 607-8400 Ext. 268',
+                        email: 'doctorado.admon@tectijuana.edu.mx',
+                        enlace: 'https://www.tijuana.tecnm.mx/doctorado-en-administracion',
+                        horario: 'Lunes a Miércoles: 8:00 - 11:00 hrs',
+                        oficina: 'Laboratorio de Neurociencias, Edificio L'
+                    }
+                },
+                {
+                    id: 'Ciencias-Ingenieria',
+                    nombre: 'Doctorado en Ciencias de la Ingeniería (SNP-CONAHCyT)',
+                    coordinador: {
+                        nombre: 'Dr. José Ricardo Cárdenas Valdez ',
+                        telefono: '+52 (664) 607-8400 ext. 270',
+                        email: 'mci@tectijuana.edu.mx',
+                        enlace: 'https://www.tijuana.tecnm.mx/doctorado-en-ciencias-de-la-ingenieria',
+                        horario: 'Jueves a Viernes: 14:00 - 18:00 hrs',
+                        oficina: 'Laboratorio de Energía, Edificio M'
+                    }
+                },
+                {
+                    id: 'Ciencias-Industrial',
+                    nombre: 'Doctorado en Ciencias de la Ingeniería Industrial',
+                    coordinador: {
+                        nombre: 'DR. JUAN RAMON PEREZ MORALES',
+                        telefono: '+52 (664) 607-8400 Ext. 148',
+                        email: 'doctorado.intustrial@tectijuana.edu.mx',
+                        enlace: 'https://www.tijuana.tecnm.mx/doctorado-en-ciencias-de-la-ingenieria-industrial',
+                        horario: 'Lunes a Viernes: 10:00 - 12:00 hrs',
+                        oficina: 'Centro de Datos, Edificio N'
+                    }
+                }
+            ]
+        };
+
+        let nivelSeleccionado = '';
+        let especialidadSeleccionada = '';
+        let modoEdicion = false;
+
+        function seleccionarNivel(nivel) {
+            nivelSeleccionado = nivel;
+            document.getElementById('paso-nivel').classList.remove('paso-activo');
+            document.getElementById('paso-nivel').classList.add('paso-oculto');
+            
+            document.getElementById('paso-especialidad').classList.remove('paso-oculto');
+            document.getElementById('paso-especialidad').classList.add('paso-activo');
+            
+            cargarEspecialidades(nivel);
+        }
+
+        function cargarEspecialidades(nivel) {
+            const container = document.getElementById('especialidades-container');
+            const especialidades = datosEspecialidades[nivel];
+            
+            container.innerHTML = especialidades.map(especialidad => `
+                <div class="especialidad-card" onclick="seleccionarEspecialidad('${especialidad.id}')">
+                    <i class="material-icons">business_center</i>
+                    <h3>${especialidad.nombre}</h3>
+                    <p>Haz clic para ver información del coordinador</p>
+                </div>
+            `).join('');
+        }
+
+        function seleccionarEspecialidad(especialidadId) {
+            especialidadSeleccionada = especialidadId;
+            document.getElementById('paso-especialidad').classList.remove('paso-activo');
+            document.getElementById('paso-especialidad').classList.add('paso-oculto');
+            
+            document.getElementById('paso-coordinador').classList.remove('paso-oculto');
+            document.getElementById('paso-coordinador').classList.add('paso-activo');
+            
+            // Resetear modo edición al cambiar de especialidad
+            modoEdicion = false;
+            actualizarBotonEdicion();
+            
+            mostrarInformacionCoordinador();
+        }
+
+        function mostrarInformacionCoordinador() {
+            const especialidad = datosEspecialidades[nivelSeleccionado].find(e => e.id === especialidadSeleccionada);
+            const coordinador = especialidad.coordinador;
+            
+            document.getElementById('info-coordinador').innerHTML = `
+                <div class="coordinador-header">
+                    <h3>${especialidad.nombre}</h3>
+                    <p class="nivel-tag">${nivelSeleccionado === 'maestria' ? 'Maestría' : 'Doctorado'}</p>
+                </div>
+                <div class="coordinador-detalles">
+                    <div class="info-item">
+                        <i class="material-icons">person</i>
+                        <div>
+                            <label>Coordinador:</label>
+                            <span class="editable" data-campo="nombre">${coordinador.nombre}</span>
+                            ${modoEdicion ? `<input type="text" class="edit-input" value="${coordinador.nombre}" data-campo="nombre" style="display: none;">` : ''}
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="material-icons">phone</i>
+                        <div>
+                            <label>Teléfono:</label>
+                            <a href="tel:${coordinador.telefono}" class="editable" data-campo="telefono">${coordinador.telefono}</a>
+                            ${modoEdicion ? `<input type="tel" class="edit-input" value="${coordinador.telefono}" data-campo="telefono" style="display: none;">` : ''}
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="material-icons">email</i>
+                        <div>
+                            <label>Correo:</label>
+                            <a href="mailto:${coordinador.email}" class="editable" data-campo="email">${coordinador.email}</a>
+                            ${modoEdicion ? `<input type="email" class="edit-input" value="${coordinador.email}" data-campo="email" style="display: none;">` : ''}
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="material-icons">schedule</i>
+                        <div>
+                            <label>Horario de Atención:</label>
+                            <span class="editable" data-campo="horario">${coordinador.horario}</span>
+                            ${modoEdicion ? `<input type="text" class="edit-input" value="${coordinador.horario}" data-campo="horario" style="display: none;">` : ''}
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="material-icons">location_on</i>
+                        <div>
+                            <label>Oficina:</label>
+                            <span class="editable" data-campo="oficina">${coordinador.oficina}</span>
+                            ${modoEdicion ? `<input type="text" class="edit-input" value="${coordinador.oficina}" data-campo="oficina" style="display: none;">` : ''}
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="material-icons">link</i>
+                        <div>
+                            <label>Enlace Directorio:</label>
+                            <a href="${coordinador.enlace}" target="_blank" class="editable" data-campo="enlace">${coordinador.enlace}</a>
+                            ${modoEdicion ? `<input type="url" class="edit-input" value="${coordinador.enlace}" data-campo="enlace" style="display: none;">` : ''}
+                        </div>
+                    </div>
+                </div>
+                <div class="coordinador-acciones">
+                    <a href="${coordinador.enlace}" target="_blank" class="btn-directorio">
+                        <i class="material-icons">open_in_new</i> Ver Directorio Completo
+                    </a>
+                    <button class="btn-contactar" onclick="contactarCoordinador('${coordinador.email}')">
+                        <i class="material-icons">send</i> Enviar Correo
+                    </button>
+                    ${modoEdicion ? `
+                    <button class="btn-guardar" onclick="guardarCambios()">
+                        <i class="material-icons">save</i> Guardar Cambios
+                    </button>
+                    ` : ''}
+                </div>
+            `;
+        }
+
+        function toggleEdicionGlobal() {
+            modoEdicion = !modoEdicion;
+            actualizarBotonEdicion();
+            mostrarInformacionCoordinador();
+        }
+
+        function actualizarBotonEdicion() {
+            const boton = document.querySelector('.btn-editar-global');
+            const icono = document.getElementById('icono-edicion');
+            const texto = document.getElementById('texto-edicion');
+            
+            if (modoEdicion) {
+                icono.textContent = 'save';
+                texto.textContent = 'Guardar';
+                boton.classList.add('editando');
+            } else {
+                icono.textContent = 'edit';
+                texto.textContent = 'Editar';
+                boton.classList.remove('editando');
+            }
+        }
+
+        function guardarCambios() {
+            const inputs = document.querySelectorAll('.edit-input');
+            const especialidad = datosEspecialidades[nivelSeleccionado].find(e => e.id === especialidadSeleccionada);
+            
+            inputs.forEach(input => {
+                const campo = input.getAttribute('data-campo');
+                const valor = input.value;
+                especialidad.coordinador[campo] = valor;
+            });
+            
+            // Mostrar mensaje de éxito
+            alert('¡Cambios guardados exitosamente!');
+            
+            // Salir del modo edición
+            modoEdicion = false;
+            actualizarBotonEdicion();
+            mostrarInformacionCoordinador();
+        }
+
+        function volverPasoAnterior() {
+            document.getElementById('paso-especialidad').classList.remove('paso-activo');
+            document.getElementById('paso-especialidad').classList.add('paso-oculto');
+            
+            document.getElementById('paso-nivel').classList.remove('paso-oculto');
+            document.getElementById('paso-nivel').classList.add('paso-activo');
+        }
+
+        function volverAEspecialidades() {
+            document.getElementById('paso-coordinador').classList.remove('paso-activo');
+            document.getElementById('paso-coordinador').classList.add('paso-oculto');
+            
+            document.getElementById('paso-especialidad').classList.remove('paso-oculto');
+            document.getElementById('paso-especialidad').classList.add('paso-activo');
+        }
+
+        function contactarCoordinador(email) {
+            window.location.href = `mailto:${email}`;
+        }
+    </script>
 </body>
 </html>
